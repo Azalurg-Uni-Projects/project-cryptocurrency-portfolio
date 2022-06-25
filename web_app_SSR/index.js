@@ -36,11 +36,26 @@ app.get('/wallet', (_req, res) => {
     res.render('wallet', {authRequest, title: "Wallet"})
 });
 
-app.get('/market', (_req, res) => {
+app.get('/market', async (_req, res) => {
     res.set('Content-Type', 'text/html');
-    res.render('market', {authRequest, title: "Market"})
+    try{
+        const response = await axios.get(apiUnprotectedEndpoint)
+        if(response.status === 200){
+            res.render('market', {authRequest, title: "Market", coins: response.data})
+        } else {
+            res.render('500', {authRequest, title: "Error 500"})
+        }
+    }
+    catch(err){
+        console.log(err);
+        res.status(521).render('521', {authRequest, title: "Error 521"});
+    }
+    
+    
 });
 
+
+// change on login page
 app.get('/redirect', (req, res) => {
 
     const params = new URLSearchParams();
