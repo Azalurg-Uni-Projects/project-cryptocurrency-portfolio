@@ -5,7 +5,7 @@ const axios = require('axios');
 
 const { clientId, clientSecret, introspectionEndpoint } = require("../config/config")
 
-router.get('/protected/data', (req, res) => {
+router.get('/', (req, res) => {
 
     const accessToken = (req.headers.authorization || '').split(' ')[1] || '';
     const params = new URLSearchParams();
