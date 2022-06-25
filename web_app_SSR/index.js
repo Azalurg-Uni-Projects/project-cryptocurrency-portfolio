@@ -28,7 +28,17 @@ app.use((req, _res, next) => {
 
 app.get('/', (_req, res) => {
     res.set('Content-Type', 'text/html');
-    res.render('index', {authRequest})
+    res.render('home', {authRequest, title: "Home"})
+});
+
+app.get('/wallet', (_req, res) => {
+    res.set('Content-Type', 'text/html');
+    res.render('wallet', {authRequest, title: "Wallet"})
+});
+
+app.get('/market', (_req, res) => {
+    res.set('Content-Type', 'text/html');
+    res.render('market', {authRequest, title: "Market"})
 });
 
 app.get('/redirect', (req, res) => {
@@ -79,7 +89,7 @@ app.get('/redirect', (req, res) => {
 
 // 404 page
 app.use((req, res) => {
-    res.status(404).render('404');
+    res.status(404).render('404', {authRequest, title: "Error 404"});
 })
 
 app.listen(PORT, _err => {
