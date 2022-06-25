@@ -4,6 +4,8 @@ const { param } = require('express/lib/request');
 const {PORT, authEndpoint, tokenEndpoint, apiProtectedEndpoint, apiUnprotectedEndpoint, clientId, clientSecret, codeVerifier, codeChallenge, redirectUri} = require('./config/config')
 
 const app = express();
+app.set('view engine', 'ejs');
+
 
 // create auth request
 const authRequest = `${authEndpoint}?
@@ -26,16 +28,7 @@ app.use((req, _res, next) => {
 
 app.get('/', (_req, res) => {
     res.set('Content-Type', 'text/html');
-    res.send(`
-    <!DOCTYPE html>
-    <body>
-    <h2>Welcome to my app</h2>
-    <div>
-    <a href="${authRequest}">Please Login</a>
-    </div>
-    </body>
-    </html>
-    `);
+    res.render('index', {authRequest})
 });
 
 app.get('/redirect', (req, res) => {
@@ -82,6 +75,11 @@ app.get('/redirect', (req, res) => {
             </html>
             `);
         })
+})
+
+// 404 page
+app.use((req, res) => {
+    res.status(404).render('404');
 })
 
 app.listen(PORT, _err => {
