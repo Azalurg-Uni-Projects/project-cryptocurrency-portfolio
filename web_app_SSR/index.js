@@ -5,6 +5,7 @@ const {PORT, authEndpoint, tokenEndpoint, apiProtectedEndpoint, apiUnprotectedEn
 
 const app = express();
 app.set('view engine', 'ejs');
+app.use(express.static("public"));
 
 
 // create auth request
