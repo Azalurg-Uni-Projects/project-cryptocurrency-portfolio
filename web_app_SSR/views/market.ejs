@@ -4,11 +4,26 @@
     <%- include('./components/nav.ejs') %> 
 
     <h1>Market</h1>
-
-    <% coins.forEach(element => { %>
-       
-        <p><%= element.name %></p>
-        
-    <% }); %> 
+    <table class="CoinsList">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Coin</th>
+                <th>Price</th>
+                <th>Mkt Cap</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% coins.forEach(element => { %>
+                <tr class="Coin">
+                    <td><%= element.market_cap_rank %></td>
+                    <td class="Symbol"><img alt="image" src="<%= element.image %>"><%= element.symbol %></td>
+                    <td>$<%= element.current_price %></td>
+                    <td>$<%= element.market_cap %></td>
+                </tr>
+            <% }); %> 
+        </thead>
+    </table>
+    
 </body>
 </html>
