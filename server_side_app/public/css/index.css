@@ -95,5 +95,11 @@ nav li {
 
 .Coin .Symbol img {
   max-width: 1.25rem;
+  background-color: #dddddd;
+  margin-right: 0.5rem
+}
+
+th{
+  text-align: left;
 }
 /*# sourceMappingURL=index.css.map */
