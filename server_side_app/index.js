@@ -100,7 +100,6 @@ app.get('/wallet', (req, res) => {
 
 app.post("/post", (req, res) =>{
     const data = JSON.parse(req.headers.myheader);
-
     res.set('Content-Type', 'text/html');
     res.send("git")
 })
