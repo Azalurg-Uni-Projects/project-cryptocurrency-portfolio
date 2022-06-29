@@ -8,7 +8,8 @@ const config = {
     clientSecret: "9draBjo5QWVMyh4IRaybWFi0pe7eTi9c",
     codeVerifier: "bd330d88a3899331934030a00007ac8d962d4169196b9d58a646b212",
     codeChallenge: "TKsCMm9IxqyWVyCNMZ3x-T4PTlSQyPNVPkR9NzOATp4",
-    redirectUri: "http://localhost:5000/redirect"
+    redirectUriLogin: "http://localhost:5000",
+    redirectUriWallet: "http://localhost:5000/wallet"
 };
 
 module.exports = config;

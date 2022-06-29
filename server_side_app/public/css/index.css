@@ -3,6 +3,7 @@ body {
   color: #dddddd;
   background-color: #111111;
   margin: 0;
+  text-align: center;
 }
 
 h1, h2, h3 {
@@ -16,8 +17,7 @@ h1, h2, h3 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+  transition-duration: 0.8s;
   cursor: pointer;
   border-radius: 0.25rem;
 }
@@ -27,36 +27,22 @@ h1, h2, h3 {
 }
 
 nav {
-  width: 100vw;
+  width: 100%;
   background-color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding-top: 2rem;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   border-bottom: #17b7e7 solid 0.25rem;
 }
-
 nav ul {
   list-style: none;
   padding: 1rem 0 0.3rem 1rem;
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
-
 nav li {
   margin-right: 1rem;
 }
@@ -67,7 +53,6 @@ nav li {
   font-size: 2rem;
   color: white;
 }
-
 .Title div {
   display: inline;
   color: #0064c2;
@@ -78,28 +63,41 @@ nav li {
 }
 
 .CoinsList {
-  margin-left: 25vw;
-  margin-right: 25vw;
-  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-spacing: 0;
+}
+.CoinsList td, .CoinsList th {
+  padding: 1rem;
+}
+.CoinsList thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #3b3b3b;
+}
+.CoinsList tbody tr:hover {
+  background-color: #1c2834;
+}
+.CoinsList tbody td {
+  border-bottom: 1px solid #3b3b3b;
 }
 
 .Coin .Symbol {
   text-transform: capitalize;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .Coin .Symbol img {
-  max-width: 1.25rem;
-  background-color: #dddddd;
-  margin-right: 0.5rem
+  max-width: 1.5rem;
+  margin-right: 0.75rem;
 }
 
-th{
-  text-align: left;
-}
-/*# sourceMappingURL=index.css.map */
+@media screen and (max-width: 669px) {
+  nav {
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+}/*# sourceMappingURL=index.css.map */

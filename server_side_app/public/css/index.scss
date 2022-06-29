@@ -4,12 +4,14 @@ $light_blue: #17b7e7;
 $blue: #0064c2;
 $dark_blue: #090977;
 $light_gray: #1c2834 ;
+$gray: #3b3b3b;
 
 body{
     font-size: 1.125rem;
     color: $white;
     background-color: $black;
     margin: 0;
+    text-align: center;
 }
 
 h1, h2, h3{
@@ -33,7 +35,7 @@ h1, h2, h3{
 }
 
 nav{
-    width: 100vw;
+    width: 100%;
     background-color: black;
     display: flex;
     justify-content: space-between;
@@ -70,9 +72,27 @@ nav{
 
 
 .CoinsList{
-    margin-left: 25vw;
-    margin-right: 25vw;
-    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-spacing: 0;
+    td, th{
+        padding: 1rem;
+    }
+    thead{
+        position: sticky;
+        top: 0;
+        background-color: $gray;    
+    }
+    tbody{
+        tr:hover{
+            background-color: $light_gray;
+        }
+        td{
+            border-bottom: 1px solid $gray;
+        }
+    }
+    
 }
 .Coin{
    
@@ -81,7 +101,16 @@ nav{
         display: flex;
         align-items: center;
         img{
-            max-width: 1.25rem;
+            max-width: 1.5rem;
+            margin-right: 0.75rem;
         }
+    }
+}
+
+@media screen and (max-width: 669px) {
+    nav{
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center
     }
 }
