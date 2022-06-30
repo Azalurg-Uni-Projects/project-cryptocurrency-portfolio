@@ -1,11 +1,10 @@
 import React, { useEffect, useState }  from 'react'
 import {useLocation} from "react-router-dom";
-
-const axios = require('axios');
+import { useNavigate } from 'react-router-dom';const axios = require('axios');
 const Cookies = require('js-cookie')
 
 const Session = () => {
-
+    const navigate = useNavigate();
     const search = useLocation().search;
     const code = new URLSearchParams(search).get('code');
     useEffect(() => {
@@ -23,8 +22,9 @@ const Session = () => {
                 .then(result => {
                     const accessToken = result.data.access_token || ''
                     Cookies.set("token", accessToken, {expires: 300})
-                    window.location.href="http://localhost:3000/wallet";
-
+                    console.log(accessToken);
+                    //window.location.href="http://localhost:3000/wallet";
+                    navigate("/wallet")
                 })
                 .catch(err => {
                     console.log(err);
