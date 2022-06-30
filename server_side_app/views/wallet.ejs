@@ -5,43 +5,31 @@
     <%- include('./components/nav.ejs') %> 
 
     <h1>Wallet</h1>
-    <div> 
-        <table> 
-            <tr>
-                <td>Add coin: </td> 
-                <td>
-                    <form id="myForm">
-                        <select name="states" id="coinNameForm">
-                            <option name="bitcoin" value="bitcoin">Bitcoin</option>
-                            <option name="ethereum" value="ethereum">Ethereum</option>
-                            <option name="bnb" value="bnb">Bnb</option>
-                        </select>
-                        Amount: <input type="number" id="amount">
-                        <input type="button" value="Submit" onclick="mySubmit()">
-                    </form>
-                </td>
-            </tr>
-        </table>
+    <div style="margin-bottom: 2rem;"> 
+        <form id="myForm">
+            Coin: <select name="states" id="coinNameForm">
+                <option name="bitcoin" value="bitcoin">Bitcoin</option>
+                <option name="ethereum" value="ethereum">Ethereum</option>
+                <option name="bnb" value="bnb">Bnb</option>
+            </select>
+            Amount: <input type="number" id="amount">
+            <input type="button" value="Submit" onclick="mySubmit()">
+        </form>
    </div>
 
     <table class="CoinsList">
         <thead>
             <tr>
-                <th>#</th>
                 <th>Coin</th>
-                <th>Price</th>
                 <th>Amount</th>
-                <th>Worth</th>
+
             </tr>
         </thead>
         <tbody>
             <% coins.forEach(element => { %>
                 <tr class="Coin">
-                    <td><%= element.market_cap_rank %></td>
-                    <td class="Symbol"><img alt="image" src="<%= element.image %>"><%= element.symbol %></td>
-                    <td>$<%= element.current_price %></td>
+                    <td><%= element.coin %></td>
                     <td><%= element.amount %></td>
-                    <td>$<%= element.amount * element.current_price %></td>
                 </tr>
             <% }); %> 
         </thead>
@@ -60,7 +48,7 @@
                 // body: JSON.stringify(data)
                 }).then(res => {
                     console.log("Request complete! response:", res.data);
-                    // window.location.href = 'http://localhost:5000';
+                    window.location.href = 'http://localhost:5000';
                 });
         }
         </script>

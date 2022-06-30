@@ -19,11 +19,27 @@ const Market = ({coins, getCoins}) => {
     return(
         <div>
             <h1>Market Page</h1>
-            {coins ? coins.map(coin =>(
-            <div key={coin.id}>
-                {coin.name}: {coin.current_price}$
-            </div>
-            )) : <p className='Error'>Connection to CoinGecko error</p>}
+            <table className="CoinsList">
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>Mkt Cap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {coins ? coins.map(coin =>(
+                    <tr key={coin.id} className="Coin">
+                        <td> {coin.market_cap_rank} </td>
+                        <td className="Symbol"> <img alt="image" src={coin.image}></img> {coin.symbol} </td>
+                        <td>${coin.current_price}</td>
+                        <td>${coin.market_cap}</td>
+                    </tr>
+                    )) : <tr className='Error'>Connection to CoinGecko error</tr>}
+                </tbody>
+            </table>
+            
         </div>
     )
 }

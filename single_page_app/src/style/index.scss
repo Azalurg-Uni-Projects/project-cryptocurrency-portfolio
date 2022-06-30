@@ -79,15 +79,39 @@ ul {
   padding: 0;
 }
 
-table {
-  border-spacing: 0.75rem;
-  display: flex;
-  justify-content: space-around;
-
-  th {
-    text-align: left;
-    margin-bottom: 0.1rem;
-    border-bottom: 0.1rem solid $dark_neon;
+.CoinsList{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-spacing: 0;
+  td, th{
+      padding: 1rem;
+  }
+  thead{
+      position: sticky;
+      top: 0;
+      background-color: $gray;    
+  }
+  tbody{
+      tr:hover{
+          background-color: $light_gray;
+      }
+      td{
+          border-bottom: 1px solid $gray;
+      }
+  }
+  
+}
+.Coin{
+ 
+  .Symbol{
+      text-transform: capitalize; 
+      display: flex;
+      align-items: center;
+      img{
+          max-width: 1.5rem;
+          margin-right: 0.75rem;
+      }
   }
 }
 
@@ -95,4 +119,9 @@ table {
 .Blue{
   background: rgb(125,23,221);
   background: linear-gradient(90deg, rgba(125,23,221,1) 10%, rgba(32,177,200,1) 95%);
+}
+
+.Purple{
+  background: rgb(165, 23, 187);
+  background: linear-gradient(90deg, rgba(165,23,187,1) 10%, rgb(216, 10, 62) 95%);
 }

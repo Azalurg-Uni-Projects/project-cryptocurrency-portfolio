@@ -98,8 +98,14 @@ app.get('/wallet', (req, res) => {
         })
 })
 
-app.post("/post", (req, res) =>{
+app.post("/post", async (req, res) =>{
     const data = JSON.parse(req.headers.myheader);
+    console.log(data);
+
+    await axios.post(apiProtectedEndpoint, {data: data},{
+        headers: {'Authorization': 'Bearer ' + token}
+    })
+
     res.set('Content-Type', 'text/html');
     res.send("git")
 })

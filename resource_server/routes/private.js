@@ -37,6 +37,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
+    console.log(req.body);
+
     const accessToken = (req.headers.authorization || '').split(' ')[1] || '';
     const params = new URLSearchParams();
     params.append('client_id', clientId);
@@ -46,16 +48,9 @@ router.post('/', (req, res) => {
     return axios
         .post(introspectionEndpoint, params)
         .then(result => {
-            console.log("Introspection result");
-            console.log(result);
             res.set('Content-Type', 'application/json');
-            if(result.data.active === true){
-                content = req.content
-                res.send(JSON.stringify({connect}))
-            } else {
-                res.send({content: "Invalid token"})
-            }
-            
+            content.push(req.body.data)
+            res.send(JSON.stringify({content}))
         })
         .catch(error => {
             console.log(error);

@@ -73,11 +73,22 @@ const Wallet = ({coins, getCoins}) => {
                     </div>
                 </Form>
             </Formik>
-            {apiData ? apiData.map(coin =>(
-            <div key={coin.id}>
-                {coin.coin_name}: {coin.amount}$
-            </div>
-            )) : <p className='Error'>Nothing here</p>}
+            <table className="CoinsList">
+                <thead>
+                    <tr>
+                    <th>Coin</th>
+                    <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {apiData ? apiData.map(coin =>(
+                    <tr key={coin.id} className="Coin">
+                        <td> {coin.coin_name} </td>
+                        <td> {coin.amount}</td>
+                    </tr>
+                    )) : <tr className='Error'>Connection to CoinGecko error</tr>}
+                </tbody>
+            </table>
         </div>
     )
 }

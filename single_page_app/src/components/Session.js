@@ -22,7 +22,7 @@ const Session = () => {
                 .post("http://localhost:8080/realms/main/protocol/openid-connect/token", params)
                 .then(result => {
                     const accessToken = result.data.access_token || ''
-                    Cookies.set("token", accessToken)
+                    Cookies.set("token", accessToken, {expires: 300})
                     window.location.href="http://localhost:3000/wallet";
 
                 })
